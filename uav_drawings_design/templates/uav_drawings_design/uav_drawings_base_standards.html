@@ -1,0 +1,62 @@
+{% extends 'uav_drawings_design/layout2.html' %}
+
+{% block content %}
+
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_base_standards' %}">System Types & Room Series</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_wiring_numbers' %}">Wiring Number Scheme of Schematics</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_wiring_racks' %}">Rack Wiring Standards</a></button>
+
+<table>
+<tbody>
+<tr>
+<td colspan="2">
+<p>Drawings are sketched and grouped in designated AV series. The AV series are typically determined by the facilities set and that is normally coordinated loosely with the Sales Bill of Materials and the subsequent room type break down. The following is shows how drawings are typically numbered:</p>
+<p style="text-align: center;">&nbsp;<strong>AV-XX.YYY</strong></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>AV = Audio Visual Department Drawing</strong></p>
+<p><strong>TC = Data / Telecom Department Drawing</strong></p>
+<p><strong>SC = Security Department Drawing</strong></p>
+</td>
+<td>
+<p><strong>XX = System Type Number</strong></p>
+<p><strong>YYY = Drawing Type</strong></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table style="width: 759px;">
+<tbody>
+<tr>
+<td style="width: 744px;" colspan="2">&nbsp;&nbsp;
+<p><strong>Audio Visual Specific Drawing Legend</strong></p>
+<p>The following is a break down of what the different numbers represent.</p>
+</td>
+</tr>
+<tr>
+<td style="width: 373px;">&nbsp;
+<p><strong>XX = System Type Number</strong></p>
+<p>00=GENERAL NOTES</p>
+<p>01-99=SYSTEM NO (TYPICALLY PER ROOM)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>YYY = Room Type Series Number</strong></p>
+<p>001-099=OVERVIEW &amp; NOTES</p>
+<p>101-199=AV ELECTRICAL PLANS &amp; CEILING PLANS</p>
+<p>201-299=AV AUXILIARY PLANS</p>
+<p>301-399=WIRING DIAGRAMS</p>
+<p>401-499=CONTROL DIAGRAMS</p>
+<p>501-599=DETAIL DIAGRAMS</p>
+<p>601-699=ELEVATIONS</p>
+<p>&nbsp;</p>
+</td>
+<td style="width: 371px;"><img src="/static/uav_drawings_design/images/uav_drawings_index_example_1.PNG" width="449" height="421"></td>
+</tr>
+</tbody>
+</table>
+
+{% endblock %}

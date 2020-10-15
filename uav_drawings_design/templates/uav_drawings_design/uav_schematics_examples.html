@@ -1,0 +1,15 @@
+{% extends 'uav_drawings_design/layout2.html' %}
+
+{% block content %}
+
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_base_standards' %}">Super Simple</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_wiring_numbers' %}">Single Rack Systems</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_wiring_numbers' %}">Multiple Rack Systems</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_wiring_numbers' %}">Stand Alone Rooms</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_wiring_racks' %}">Combinable Spaces</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_wiring_racks' %}">Head End Centralized Systems</a></button>
+
+<h3> UAV Schematic Examples Landing Page</h3>
+
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'uav_drawings_design/layout2.html' %}
+
+{% block content %}
+
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_design_principles_ohms_spkr_load_p' %}">Ohms Impedance - Speakers In Parallel</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_design_principles_ohms_spkr_load_s' %}">Ohms Impedance - Speakers In Series</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_design_principles_volts_spkr_load_p' %}">50/70.7/100 Volt Distribution System</a></button>
+
+
+<h3>Ohms Impedance - Speakers In Parallel</h3>
+
+<div class="container">
+
+      <div class="row">
+        <div class="col-md-3">
+          Speaker 1
+        </div>
+        <div class="col-md-2">
+          <input type="number" class="form-control" value="0" class="qty" id="sp1_ohms_imp_p_value"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          Speaker 2
+        </div>
+        <div class="col-md-2">
+          <input type="number" class="form-control" value="0" class="qty" id="sp2_ohms_imp_p_value"/>
+        </div>
+      </div>
+
+
+
+      <div class="row my-4">
+        <div class="col-md-3 text-right total">
+            <h4>Overall Total</h4>
+        </div>
+
+        <div class="col-md-6 total-val">
+            <h4><span id="ohms_imp_p_total">0</span> Ω In ToTal</h4>
+        </div>
+      </div>
+</div>
+
+<div class="container"><p>&nbsp;</p></div>
+
+<h3>Calculating Mis Matching Ohms Speakers</h3>
+<p>If we have mismatching speakers then we would use (Sp1×Sp2) / (Sp1+Sp2) = total/(Sp1+Sp2) = Total Ω Impedance</p>
+<p>In this example we have speaker 1 being an 8 Ohm Speaker and speaker 2 being 16 Ohms.</p>
+<p>This would give us the following (8×16) / (8+16) = 128/24 = 5.333 Ω</p>
+
+<h3>Calculating Matching Ohms Speakers</h3>
+<p>If we have a pair of matching speakers then we would use (ohms rating of a speaker) / Qty of Speakers = Total Ω Impedance</p>
+<p>In this example we have speaker 1 being an 16 Ohm Speaker and speaker 2 being 16 Ohms.</p>
+<p>This would give us the following 16 / 2 = 8 Ω</p>
+
+
+{% endblock %}

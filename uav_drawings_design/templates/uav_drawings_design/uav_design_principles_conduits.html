@@ -1,0 +1,308 @@
+{% extends 'uav_drawings_design/layout2.html' %}
+
+{% block content %}
+
+<h3> UAV Design Principles - Conduits Landing Page</h3>
+
+<div class="container" >
+      <div class="row">
+        <div class="col-md-3">
+          Make & Model
+        </div>
+        <div class="col-md-4">
+          Description
+        </div>
+        <div class="col-md-1">
+          Diameter
+        </div>
+        <div class="col-md-2">
+          Quantity of Cables
+        </div>
+        <div class="col-md-2">
+          Total Area of Cables
+        </div>
+      </div>
+
+      <div class="row">
+          &nbsp;
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          A. Windy City AXCOMP
+        </div>
+        <div class="col-md-4">
+          Shielded Cresnet Plenum
+        </div>
+        <div class="col-md-1">
+          0.217
+        </div>
+        <div class="col-md-2" >
+          <input type="number" value="0" class="qty" id="qty_cable_one" />
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_one"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          B. Windy City 22-1PREZP-WHT
+        </div>
+        <div class="col-md-4">
+          Shielded 2 Conductor 22 AWG Plenum Cable
+        </div>
+        <div class="col-md-1">
+          0.135
+        </div>
+        <div class="col-md-2">
+          <input type="number" value="0" class="qty" id="qty_cable_two"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_two"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          C. Windy City 22-6C-P
+        </div>
+        <div class="col-md-4">
+          6 Conductor 22 AWG Plenum Cable
+        </div>
+        <div class="col-md-1">
+          0.163
+        </div>
+        <div class="col-md-2">
+          <input type="number" value="0" class="qty" id="qty_cable_three"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_three"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          D. Windy City 2RG6QP
+        </div>
+        <div class="col-md-4">
+          Quad Shielded Plenum RG6
+        </div>
+        <div class="col-md-1">
+          0.26
+        </div>
+        <div class="col-md-2">
+          <input type="number" value="0" class="qty" id="qty_cable_four"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_four"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          E. Windy City 14-02P
+        </div>
+        <div class="col-md-4">
+          2 Conductor 14 AWG Plenum
+        </div>
+        <div class="col-md-1">
+          0.21
+        </div>
+        <div class="col-md-2">
+          <input type="number" value="0" class="qty" id="qty_cable_five"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_five"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          F. Windy City 16-02P
+        </div>
+        <div class="col-md-4">
+          2 Conductor 16 AWG Plenum
+        </div>
+        <div class="col-md-1">
+          0.184
+        </div>
+        <div class="col-md-2">
+          <input type="number" value="0" class="qty" id="qty_cable_six"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_six"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          G. Windy City 18-02P
+        </div>
+        <div class="col-md-4">
+          2 Conductor 18 AWG Plenum
+        </div>
+        <div class="col-md-1">
+          0.158
+        </div>
+        <div class="col-md-2">
+          <input type="number" value="0" class="qty" id="qty_cable_seven"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_seven"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          H. Windy City CAT6P
+        </div>
+        <div class="col-md-4">
+          Unshielded Twisted Pair CAT6 Plenum
+        </div>
+        <div class="col-md-1">
+          0.22
+        </div>
+        <div class="col-md-2">
+          <input type="number" value="0" class="qty" id="qty_cable_eight"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_eight"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          I. Windy City CAT6SP
+        </div>
+        <div class="col-md-4">
+          Shielded Twisted Pair CAT6 Plenum
+        </div>
+        <div class="col-md-1">
+          0.277
+        </div>
+        <div class="col-md-2">
+          <input type="number" value="0" class="qty" id="qty_cable_nine"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_nine"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          J. Windy City RG58P
+        </div>
+        <div class="col-md-4">
+          Plenum Rated RG58 - 50 Ohm
+        </div>
+        <div class="col-md-1">
+          0.195
+        </div>
+        <div class="col-md-2">
+          <input type="number" value="0" class="qty" id="qty_cable_ten"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_ten"/>
+        </div>
+      </div>
+
+       <div class="row">
+        <div class="col-md-3">
+          K. Liberty RGB5C-PLN
+        </div>
+        <div class="col-md-4">
+          Mini High-Res RGBHV Coax - Plenum
+        </div>
+        <div class="col-md-1">
+          0.34
+        </div>
+        <div class="col-md-2">
+          <input type="number" value="0" class="qty" id="qty_cable_eleven"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_eleven"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          L. Windy City CAT7SP
+        </div>
+        <div class="col-md-4">
+          4-Pair 22AWG Individually Shielded - Plenum
+        </div>
+        <div class="col-md-1">
+          0.305
+        </div>
+        <div class="col-md-2">
+          <input type="number" value="0" class="qty" id="qty_cable_twelve"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_twelve"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          M. Windy City RG8P
+        </div>
+        <div class="col-md-4">
+          RG8/U (50 OHM) - PLENUM
+        </div>
+        <div class="col-md-1">
+          0.349
+        </div>
+        <div class="col-md-2">
+          <input type="number" value="0" class="qty" id="qty_cable_thirteen"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_thirteen"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          N. Liberty 18-CMP-VID-COAX
+        </div>
+        <div class="col-md-4">
+          RG6/U 3G SDI COAX - PLENUM
+        </div>
+        <div class="col-md-1">
+          0.305
+        </div>
+        <div class="col-md-2">
+          <input type="number" value="0" class="qty" id="qty_cable_fourteen"/>
+        </div>
+        <div class="col-md-2">
+          <input type="number" readonly value="0" id="diameter_cable_fourteen"/>
+        </div>
+      </div>
+
+    <p>&nbsp;</p>
+
+      <div class="row my-4">
+        <div class="col-md-6 text-right total">
+         Overall Area Total
+        </div>
+
+        <div class="col-md-6 total-val">
+          <span id="total_value">0</span>
+        </div>
+      </div>
+
+      <div class="row my-4">
+        <div class="col-md-6 text-right total">
+         Required Conduit (Includes 40% Rule)
+        </div>
+
+        <div class="col-md-6 total-val">
+          <span id="conduit_size">0</span>
+        </div>
+      </div>
+</div>
+
+<h3>Calculating The Area Of A Cable: A = R<sup>2</sup> * Pi</h3>
+<p>The area of a circle is the amount of space the circle covers. The formula for calculating the area of a circle is A = π_r_2 where pi (π) equals 3.14 and the radius (r) is half the diameter.</p>
+
+{% endblock %}

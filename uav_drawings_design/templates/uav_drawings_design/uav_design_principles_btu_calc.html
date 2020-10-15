@@ -1,0 +1,36 @@
+{% extends 'uav_drawings_design/layout2.html' %}
+
+{% block content %}
+
+<h3>Btu/Hr Calculating</h3>
+
+<div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          Watts of a Device
+        </div>
+        <div class="col-md-2">
+          <input type="number" class="form-control" value="0" class="qty" id="watts"/>
+        </div>
+      </div>
+</div>
+<div class="row my-4">
+    <div class="col-md-3 text-right total">
+        <h4>Overall Total</h4>
+    </div>
+
+    <div class="col-md-6 total-val">
+        <h4><span id="btutotal">0</span> Btu/Hr</h4>
+    </div>
+</div>
+
+
+
+<div>
+   <h3>Calculating The Btu/hr of a Device</h3>
+    <p>Total Btu/hr = Device Watts * 3.4</p>
+    <p>In this example we have a device wth a watts rating of 100.</p>
+    <p>This would give us the following 100 * 3.4 = 340 Btu/hr</p>
+</div>
+
+{% endblock %}

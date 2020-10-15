@@ -1,0 +1,57 @@
+{% extends 'uav_drawings_design/layout2.html' %}
+
+{% block content %}
+
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_base_standards' %}">System Types & Room Series</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_wiring_numbers' %}">Wiring Number Scheme of Schematics</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_wiring_racks' %}">Rack Wiring Standards</a></button>
+
+<p><strong>The Numbering Scheme&mdash;When Multiple Racks Are In The Same System</strong></p>
+<p>A key stipulation to the standardizations is of the numbering conventions&nbsp; is when there are multiple racks in the same Audio Visual system. If there is only one(1) rack in the system then all the cables inside the rack would start with a 100 numbering. For example the first line level audio cable would be L1001.</p>
+<p>The difference comes when there are multiple racks in the same Audio Visual system. In these cases the internal rack cable numbers will start with a prefix associated to their rack number. This means cables in rack number one(1) will have cables starting with a 100 number. Rack number two(2) will have cables starting with a 200 number.</p>
+<p>See the example below showing what internal cables might be numbered like in a large head end deployment.</p>
+<p>&nbsp;<strong><em>WIRING NUMBER EXAMPLE For Multiple Rack Head Ends &amp; Systems</em></strong></p>
+<table>
+<tbody>
+<tr>
+<td>
+<p>Rack 1 Number &nbsp;</p>
+</td>
+<td>
+<p>Rack 2 Number &nbsp;</p>
+</td>
+<td>
+<p>Rack 3 Number &nbsp;</p>
+</td>
+<td>
+<p>Rack 4 Number &nbsp;</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>C101&mdash;C104</p>
+<p>L101&mdash;L108</p>
+<p>V101&mdash;V120</p>
+</td>
+<td>
+<p>C201&mdash;C208</p>
+<p>L201&mdash;L208&nbsp;</p>
+<p>V201&mdash;V204</p>
+</td>
+<td>
+<p>L301&mdash;L108</p>
+<p>&nbsp;</p>
+&nbsp;</td>
+<td>
+<p>L401&mdash;L408</p>
+<p>S401&mdash;S408</p>
+&nbsp;</td>
+</tr>
+<tr>
+<td colspan="4"><img src="/static/uav_drawings_design/images/uav_racks_mulitple_large.PNG" width="600" height="300"></td>
+</tr>
+</tbody>
+</table>
+<p>Above are examples of what US Information Systems Audio Visual cable numbers might look like on drawings and labeled on cables when there are&nbsp; multiple racks within a single head end or AV system.</p>
+<p>&nbsp;</p>
+{% endblock %}

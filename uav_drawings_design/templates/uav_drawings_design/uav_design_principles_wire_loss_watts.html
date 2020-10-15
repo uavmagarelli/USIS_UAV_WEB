@@ -1,0 +1,252 @@
+<{% extends 'uav_drawings_design/layout2.html' %}
+
+{% block content %}
+
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_design_principles_wire_loss_watts' %}">Speakers Tapped In Watts</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_design_principles_wire_loss_ohms' %}">Speakers Tapped In Ohms</a></button>
+
+<h3> Calculating Line Losses For Speakers Tapped In Watts</h3>
+
+<div class="container">
+    <p></p>
+    <div class="row">
+        <div class="col-md-3">
+            Wire Conductor Type
+        </div>
+        <div class="col-md-4">
+            Copper
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Wire Gauge
+        </div>
+        <div class="col-md-4">
+            <input type="number" class="form-control" value="0" class="qty" id="cable_gauge"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Length of Cable Run in Feet
+        </div>
+        <div class="col-md-4">
+            <input type="number" class="form-control" value="0" class="qty" id="cable_run"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Amplifier Power Rating in Watts
+        </div>
+        <div class="col-md-4">
+            <input type="number" class="form-control" value="0" class="qty" id="amp_watts"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Amp Taps in Volts
+        </div>
+        <div class="col-md-4">
+            <input type="number" class="form-control" value="0" class="qty" id="amp_taps_volts" onkeyup="disableField(this.value)"/>
+        </div>
+    </div>
+
+    <p>&nbsp;</p>
+
+    <div class="row">
+        <div class="col-md-3">
+            Available Power To System
+        </div>
+        <div class="col-md-4">
+            <p><span id="available_watts">0</span> In Watts</p>
+        </div>
+    </div>
+</div>
+
+<p>&nbsp;</p>
+
+<div class="container">
+    <p>Wire type: Copper</p>
+    <p>&nbsp;</p>
+        <table style="height: 872px;" width="900">
+        <tbody>
+            <tr>
+                <td style="width: 400px;">R<sub>w</sub> = System wire load resistance.</td>
+                <td style="width: 150px;">R<sub>w</sub>=K(2*L)/d<sup>2</sup></td>
+                <td style="width: 150px;"><span id="systemWireLoadResistance">0</span></td>
+                <td style="width: 150px;"><span>&#8486;</span></td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; K = Resistance of wire per circular mill foot (See table)</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemWireLoadResistanceCMF">0</span></td>
+                <td style="width: 72px;"><span>&#8486;</span></td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; L = Length of wire run in feet times 2 (Out &amp; Back)</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemWireRunDistance">0</span></td>
+                <td style="width: 72px;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; d = Diameter of wire gauge in mills (See table)</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemWireDiameterMills">0</span></td>
+                <td style="width: 72px;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp;</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;">&nbsp;</td>
+                <td style="width: 72px;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">R<sub>L</sub> = Amplifier load impedance</td>
+                <td style="width: 134px;">&nbsp;&nbsp; R<sub>L</sub> = V<sub>a</sub><sup>2</sup>/P<sub>a</sub></td>
+                <td style="width: 72px;"><span id="systemAmpLoadImp">0</span></td>
+                <td style="width: 72px;"><span>&#8486;</span></td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; P<sub>a</sub> = Amplifier power rating</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemAmpLoadPwr">0</span></td>
+                <td style="width: 72px;">W</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; V<sub>a</sub> = Amplifier voltage</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemAmpLoadVolt">0</span></td>
+                <td style="width: 72px;">V</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp;</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;">&nbsp;</td>
+                <td style="width: 72px;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">V<sub>a</sub> = Amplifier voltage</td>
+                <td style="width: 134px;">&nbsp;V<sub>a</sub><sup>2 = </sup>R<sub>L</sub>*P<sub>a</sub></td>
+                <td style="width: 72px;"><span id="systemAmpVoltage">0</span></td>
+                <td style="width: 72px;">V</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; R<sub>L</sub> = Amplifier load impedance</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemAmpImp">0</span></td>
+                <td style="width: 72px;"><span>&#8486;</span></td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; P<sub>a</sub> = Amplifier power rating</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemAmpPwr">0</span></td>
+                <td style="width: 72px;">W</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp;</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;">&nbsp;</td>
+                <td style="width: 72px;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">I<sub>a</sub> = Amplifier current:</td>
+                <td style="width: 134px;">I = <span style="white-space: nowrap; font-size: larger;"> &radic;<span style="text-decoration: overline;">&nbsp;P / R&nbsp;</span> </span></td>
+                <td style="width: 72px;"><span id="systemAmpCur">0</span></td>
+                <td style="width: 72px;">A</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; P<sub>a </sub>= Amplifier power rating</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemAmpPwrRate">0</span></td>
+                <td style="width: 72px;">W</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; R<sub>L</sub> = Amplifier load impedance</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemAmpLoadImp2">0</span></td>
+                <td style="width: 72px;"><span>&#8486;</span></td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp;</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;">&nbsp;</td>
+                <td style="width: 72px;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">P<sub>s</sub> = Power taken from amplifier:</td>
+                <td style="width: 134px;">&nbsp;&nbsp; P<sub>s</sub> = V<sub>a</sub><sup>2</sup>/(R<sub>a</sub>+R<sub>w)</sub></td>
+                <td style="width: 72px;"><span id="systemPwrFromAmp">0</span></td>
+                <td style="width: 72px;">W</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; V<sub>a</sub> = Amplifier tap</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemAmpVoltage2">0</span></td>
+                <td style="width: 72px;">V</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; R<sub>L</sub> = Amplifier load impedance</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemAmpLoadImp3">0</span></td>
+                <td style="width: 72px;"><span>&#8486;</span></td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; R<sub>w</sub> = Wire load</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemPwrFromAmpWireLoad">0</span></td>
+                <td style="width: 72px;"><span>&#8486;</span></td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp;</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;">&nbsp;</td>
+                <td style="width: 72px;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">I<sub>s</sub> = Current through the system:</td>
+                <td style="width: 134px;">&nbsp;&nbsp;I = <span style="white-space: nowrap; font-size: larger;"> &radic;<span style="text-decoration: overline;">&nbsp;P / R&nbsp;</span> </span></td>
+                <td style="width: 72px;"><span id="systemCurrent">0</span></td>
+                <td style="width: 72px;">A</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; P<sub>s</sub> = Watts taken from amplifier</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemPwrFromAmp2">0</span></td>
+                <td style="width: 72px;">W</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; R<sub>s</sub> = System load (R<sub>a</sub> + R<sub>w</sub>)</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemLoad">0</span></td>
+                <td style="width: 72px;"><span>&#8486;</span></td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp;</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;">&nbsp;</td>
+                <td style="width: 72px;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">P<sub>s</sub> = Available power to system load:</td>
+                <td style="width: 134px;">P = I<sup>2</sup>R<sub>a</sub>&nbsp;</td>
+                <td style="width: 72px;"><span id="systemAvailPwr">0</span></td>
+                <td style="width: 72px;">W</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; I<sub>s</sub> = Current through the system</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemCurrent2">0</span></td>
+                <td style="width: 72px;">A</td>
+            </tr>
+            <tr>
+                <td style="width: 400px;">&nbsp; R<sub>L</sub> = Amplifier load impedance</td>
+                <td style="width: 134px;">&nbsp;</td>
+                <td style="width: 72px;"><span id="systemAmpLoadImp4">0</span></td>
+                <td style="width: 72px;"><span>&#8486;</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+{% endblock %}

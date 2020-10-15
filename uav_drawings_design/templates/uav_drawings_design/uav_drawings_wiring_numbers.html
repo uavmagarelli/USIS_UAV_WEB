@@ -1,0 +1,48 @@
+{% extends 'uav_drawings_design/layout2.html' %}
+
+{% block content %}
+
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_base_standards' %}">System Types & Room Series</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_wiring_numbers' %}">Wiring Number Scheme of Schematics</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_drawings_wiring_racks' %}">Rack Wiring Standards</a></button>
+
+<p><strong>Basics of A USIS Audio Visual Wiring Schematic</strong></p>
+<p>While looking at different examples of past drawing packages will help in starting the USIS standard(s), below are some key points that need to be known when starting the process for the first time.</p>
+<p><strong>The Numbering Scheme</strong></p>
+<p>One of the key standardizations is of the numbering conventions&nbsp; of all cables within a system. Below are the used standards as of today. Some flexibility can be given when considering large deployments and the potential for duplicated truncations.</p>
+<p>&nbsp;<strong><em>WIRING NUMBERING EXAMPLE</em></strong></p>
+<table>
+<tbody>
+<tr>
+<td>Example 1 = S01 |</td>
+<td>Example 2 = L1001</td>
+</tr>
+</tbody>
+</table>
+<p>Above are examples of what US Information Systems Audio Visual cable numbers might look like on drawings and in the field labeled on cables.</p>
+<p>&nbsp;</p>
+<p><strong>Example 1 = S01</strong></p>
+<p>The two digit number represents a field cable wire&nbsp; number.</p>
+<p>The &ldquo;S&rdquo; represents Speaker audio level signal</p>
+<p>The &ldquo;01&rdquo; represents Speaker cable one(1)</p>
+<p>&nbsp;</p>
+<p><strong>Example 1 = L1001</strong></p>
+<p>The three digit number represents a rack cable wire number.</p>
+<p>The &ldquo;L&rdquo; represents Line level audio signal</p>
+<p>The &ldquo;001&rdquo; represents Speaker cable one(1)</p>
+<p>&nbsp;</p>
+<p><strong>US Information Systems Audio Visual Cable Prefix Standard</strong></p>
+<p>C = Control Cable</p>
+<p>D = Data</p>
+<p>DAN = Dante Digital Audio</p>
+<p>L = Line Level Audio</p>
+<p>M = Microphone Level Audio</p>
+<p>P = Power Cable</p>
+<p>RF = Any Wireless RF device/ receiver&nbsp; or Cable TV incoming feed</p>
+<p>S = Speaker Level Audio</p>
+<p>T = Telco (VoIP or POTS)</p>
+<p>SP = Spare</p>
+<p>V = Video Signal (All are generalized into &ldquo;V&rdquo;)</p>
+<p>&nbsp;</p>
+
+{% endblock %}

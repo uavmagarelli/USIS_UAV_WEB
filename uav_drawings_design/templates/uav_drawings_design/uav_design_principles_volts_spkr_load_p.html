@@ -1,0 +1,88 @@
+{% extends 'uav_drawings_design/layout2.html' %}
+
+{% block content %}
+
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_design_principles_ohms_spkr_load_p' %}">Ohms Impedance - Speakers In Parallel</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_design_principles_ohms_spkr_load_s' %}">Ohms Impedance - Speakers In Series</a></button>
+<button type="button" class="btn btn-dark btn-med"><a href="{% url 'uav_design_principles_volts_spkr_load_p' %}">50/70.7/100 Volt Distribution System</a></button>
+
+
+<h3>Volt Speakers - Speakers In Parallel</h3>
+
+<div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          Speaker Tap Setting
+        </div>
+        <div class="col-md-2">
+          <input type="number" class="form-control" value="0" class="qty" id="tap_volts_p_value"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          Number Of Speakers In Line
+        </div>
+        <div class="col-md-2">
+          <input type="number" class="form-control" value="0" class="qty" id="quantity_volts_imp_p_value"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          Volt Type of Amplifier
+        </div>
+        <div class="col-md-2">
+          <input type="number" class="form-control" value="0" class="qty" id="ampvolts_volts_imp_p_value"/>
+        </div>
+      </div>
+
+      <div class="row my-4">
+        <div class="col-md-3 text-right total">
+            <h4>Impedance</h4>
+        </div>
+
+        <div class="col-md-6 total-val">
+            <h4><span id="volts_impedance_p_total">0</span> Ω In ToTal Of Overall Speaker Load</h4>
+        </div>
+      </div>
+
+      <div class="row my-4">
+        <div class="col-md-3 text-right total">
+            <h4>Amplifier Power</h4>
+        </div>
+        <div class="col-md-6 total-val">
+            <h4><span id="volts_power_p_total">0</span> Min. Watts Required For Overall Speaker Load</h4>
+        </div>
+      </div>
+
+      <div class="row my-4">
+        <div class="col-md-3 text-right total">
+        </div>
+        <div class="col-md-6 total-val">
+            <h4><span id="volts_power_p_total_headroom">0</span> Watts With 25% Head Room</h4>
+        </div>
+      </div>
+</div>
+
+<div>
+   <h3>Calculating The Min. Power Requirement</h3>
+    <p>The simple way to do this is to add together all the Tap setting of each speaker in the chain </p>
+    <p>In this example we have speaker 1 being tapped at 7 Watts  and speaker 2 being tapped at 7 Watts.</p>
+    <p>This would give us the following 7+7 = 14 Watts</p>
+    <p>It is considered good practice to leave 25% of an amplifiers overall Watts unused</p>
+    <p>This would give us the following (7+7) + 25% = 17.7 Watts</p>
+</div>
+
+<div>
+   <h3>Calculating The Impedence</h3>
+    <p>To calculate the impedance you use the formula: Impedance = Volts2/Power where Volts is the type of
+        distribution system and power equals the min power requires of teh overall speaker chain. </p>
+    <p>We start with the Volts type of the distribution amplifier. For our example we will say 100v</p>
+    <p>In this example we have five(5) speakers tapped at 4 Watts each.</p>
+    <p>This would give Power (aka Watts) = 5 * 4 = 20 </p>
+    <p>Now to tie it together we (volts*volts)/power</p>
+    <p>Giving us (100 * 100) / 20 = 500 Ω</p>
+</div>
+
+{% endblock %}

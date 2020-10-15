@@ -1,0 +1,45 @@
+{% extends 'uav_drawings_design/layout2.html' %}
+
+{% block content %}
+
+<h3>Ceiling Speakers - Speaker Coverage</h3>
+
+<div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          Ceiling Height In Inches
+        </div>
+        <div class="col-md-2">
+          <input type="number" class="form-control" value="0" class="qty" id="ceilingheight"/>
+        </div>
+      </div>
+</div>
+<div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          Speakers Nominal Coverage Angle
+        </div>
+        <div class="col-md-2">
+          <input type="number" class="form-control" value="0" class="qty" id="coverageangle"/>
+        </div>
+      </div>
+</div>
+<div class="row my-4">
+    <div class="col-md-3 text-right total">
+        <h4>Diameter of Coverage Circle At Ear Height</h4>
+    </div>
+
+    <div class="col-md-6 total-val">
+        <h4><span id="coveragetotal">0</span> Inches</h4>
+    </div>
+</div>
+
+
+<div>
+   <h3>Calculating The Diameter Coverage of a Speaker</h3>
+    <p>Diameter at ear height = 2 * (Ceiling height - height of seated ear level) * tan(Speakers Nominal Coverage Angle / 2)</p>
+    <p>In this example we have a speaker wth a Speakers Nominal Coverage Angle of 120 Degrees going in a room where the ceiling is 12' tall.</p>
+    <p>This would give us the following 2 * (144 - 48) * tan(120 / 2) = 61.45 Inches</p>
+</div>
+
+{% endblock %}
